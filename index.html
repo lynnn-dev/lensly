@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lens / Lyn - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background: #1a1a1a;
+            color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        h1, h2 {
+            color: #4fc3f7;
+            text-align: center;
+        }
+
+        h1 {
+            margin-top: 20px;
+            font-size: 2.5rem;
+        }
+
+        h3 {
+            margin-top: 10px;
+            font-size: 1.2rem;
+            color: #aaa;
+            text-align: center;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 50px;
+        }
+
+        /* Progress Bar Styles */
+        .progress-container {
+            margin: 10px 0;
+        }
+
+        .progress-bar {
+            width: 100%;
+            background: #333;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        .progress-bar div {
+            height: 25px;
+            line-height: 25px;
+            background: #4fc3f7;
+            text-align: center;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        /* Hobbies Section */
+        section ul {
+            margin-top: 1rem;
+            list-style: disc;
+            padding-left: 1.5rem;
+        }
+
+        section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Blue Boxes (Developer Roles) */
+        .role-box-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .role-box {
+            flex: 1;
+            min-width: 250px;
+            padding: 20px;
+            background: #4fc3f7;
+            color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .role-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Footer Styles */
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background: #333;
+            color: #aaa;
+            margin-top: 50px;
+        }
+
+        footer a {
+            color: #4fc3f7;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Dark/Light Mode Switch */
+        #mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #4fc3f7;
+            border: none;
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+            z-index: 10;
+        }
+
+        .light-mode body {
+            background: #f0f0f0;
+            color: #1a1a1a;
+        }
+
+        .light-mode .progress-bar div {
+            background: #00796b;
+        }
+
+        .light-mode footer {
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        .light-mode .role-box {
+            background: #00796b;
+        }
+    </style>
+</head>
+<body>
+    <!-- Dark Mode Toggle -->
+    <button id="mode-toggle" title="Toggle Dark/Light Mode"><i class="fas fa-moon"></i></button>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Welcome to My Portfolio</h1>
+        <h3>Developer / Programmer | Scripts, Tools and Simple Websites</h3>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- About Me Section -->
+        <section>
+            <h2>About Me</h2>
+            <p>Hi, I'm Lens (or Lyn), a 15-year-old self-taught developer. I create scripts, tools, and websites entirely on my mobile device. My passion lies in building efficient and innovative solutions. Welcome to my portfolio!</p>
+        </section>
+
+        <!-- Languages Section -->
+        <section>
+            <h2>Languages</h2>
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="python" style="width: 87%;">Python - 87%</div>
+                </div>
+            </div>
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="php" style="width: 80%;">PHP - 80%</div>
+                </div>
+            </div>
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="javascript" style="width: 70%;">JavaScript - 70%</div>
+                </div>
+            </div>
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="css" style="width: 40%;">CSS - 40%</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hobbies & Interests Section -->
+        <section>
+            <h2>Hobbies & Interests</h2>
+            <p>When I'm not coding, I enjoy:</p>
+            <ul>
+                <li>Playing video games to unwind and find inspiration for my projects.</li>
+                <li>Exploring new technology and staying updated with industry trends.</li>
+                <li>Learning about ethical hacking and security to enhance my skills.</li>
+            </ul>
+        </section>
+
+        <!-- Developer Roles Section -->
+        <section>
+            <h2>What I Do</h2>
+            <div class="role-box-container">
+                <!-- Software Developer Box -->
+                <div class="role-box">
+                    <h3>Software Developer</h3>
+                    <p>I specialize in creating efficient tools and scripts that automate tasks, improve productivity, and solve complex problems, all using minimal resources.</p>
+                </div>
+                
+                <!-- Website Developer Box -->
+                <div class="role-box">
+                    <h3>Website Developer</h3>
+                    <p>I design and develop responsive, aesthetically pleasing, and user-friendly websites optimized for mobile and desktop platforms.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- GitHub Icon -->
+    <footer>
+        <a href="https://github.com" target="_blank"><i class="fab fa-github" style="font-size: 30px; color: #4fc3f7;"></i></a>
+        <p>&copy; 2024 Lens / Lyn. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js"></script>
+    <script>
+        // Firebase Configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyA8KsBzHFCmPM-H6SfqWeb2CM5OkcU3dc0",
+            authDomain: "portfolio-8c904.firebaseapp.com",
+            projectId: "portfolio-8c904",
+            storageBucket: "portfolio-8c904.firebasestorage.app",
+            messagingSenderId: "264751719180",
+            appId: "1:264751719180:web:44d0a753a92511f6fb5f29"
+        };
+
+        // Initialize Firebase
+        const app = firebase.initializeApp(firebaseConfig);
+        const database = firebase.database();
+
+        // Save Visitor IP to Firebase
+        function saveVisitorIp(ip) {
+            const ipRef = database.ref('visitor_ips');
+            ipRef.push({
+                ip: ip,
+                timestamp: new Date().toISOString()
+            });
+        }
+
+        // Get the user's IP (using ipinfo.io API)
+        fetch('https://ipinfo.io?token=17f18a2c80db73')
+            .then(response => response.json())
+            .then(data => {
+                const ip = data.ip;
+                saveVisitorIp(ip); // Save IP to Firebase
+            })
+            .catch(error => console.error('Error fetching IP:', error));
+
+        // Dark Mode / Light Mode Toggle Functionality
+        const modeToggle = document.getElementById("mode-toggle");
+
+        modeToggle.addEventListener("click", () => {
+            document.body.classList.toggle("light-mode");
+            const icon = modeToggle.querySelector("i");
+            icon.classList.toggle("fa-sun");
+            icon.classList.toggle("fa-moon");
+        });
+    </script>
+</body>
+</html>
