@@ -1,718 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lensly's - Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        /* General Styles */
-        body {
-            font-family: Arial, sans-serif;
-            background: #1a1a1a;
-            color: #f0f0f0;
-            margin: 0;
-            padding: 0;
-            transition: background 0.3s, color 0.3s;
-        }
-
-        h1, h2 {
-            color: #4fc3f7;
-            text-align: center;
-            animation: fadeIn 1.5s ease-in-out;
-        }
-
-        h1 {
-            margin-top: 20px;
-            font-size: 2.5rem;
-        }
-
-        h3 {
-            margin-top: 10px;
-            font-size: 1.2rem;
-            color: #aaa;
-            text-align: center;
-            animation: fadeIn 2s ease-in-out;
-        }
-
-        main {
-            padding: 20px;
-        }
-
-        section {
-            margin-bottom: 50px;
-            opacity: 0;
-            animation: fadeUp 1s ease-in-out forwards;
-        }
-
-        section:nth-child(even) {
-            animation-delay: 0.5s;
-        }
-
-        section:nth-child(odd) {
-            animation-delay: 1s;
-        }
-
-        /* Rectangle Box Styles */
-.role-box-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px; /* Reduced space between boxes */
-    justify-content: center;
-}
-
-.role-box {
-    flex: 1;
-    min-width: 250px;
-    padding: 20px;
-    background: #2e2e2e; /* Match background color */
-    color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    opacity: 0;
-    animation: slideIn 1s ease-in-out forwards;
-    margin: 5px; /* Reduced margin for less space */
-}
-
-        .role-box:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
-        }
-
-      /* Role box container */
-.role-box {
-    background: #2e2e2e;
-    padding: 10px;
-    margin-right: 10px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    width: 150px;
-    cursor: pointer; /* Indicates that the box is clickable */
-    transition: transform 0.3s ease, background-color 0.3s ease; /* Smooth transition */
-}
-
-/* Hover effect */
-.role-box:hover {
-    background-color: #444; /* Darker background on hover */
-    transform: scale(1.05); /* Slightly enlarge the box on hover */
-
-}
-
-        /* Hamburger Menu Styles */
-        .hamburger {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 30px;
-            height: 20px;
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            z-index: 10;
-            transition: all 0.3s ease;
-        }
-
-        .hamburger div {
-            width: 100%;
-            height: 3px;
-            background: #f0f0f0;
-            transition: all 0.3s ease;
-        }
-
-        /* Menu Box */
-        .menu-box {
-            position: fixed;
-            top: 60px;
-            right: 20px;
-            width: 200px;
-            background: #333;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            display: none;
-            flex-direction: column;
-            padding: 10px;
-            z-index: 9;
-            animation: slideInMenu 0.5s ease-out;
-        }
-
-        .menu-box.open {
-            display: flex;
-        }
-
-        .menu-box button {
-            background: none;
-            border: none;
-            color: #f0f0f0;
-            text-align: left;
-            padding: 10px;
-            border-radius: 5px;
-            font-size: 1rem;
-            transition: background 0.3s ease;
-            cursor: pointer;
-        }
-
-        .menu-box button:hover {
-            background: #4fc3f7;
-        }
-
-        .menu-box .dropdown {
-            margin-left: 10px;
-        }
-
-        .menu-box .dropdown button {
-            padding-left: 20px;
-        }
-
-        /* Light Mode Styles */
-        .light-mode {
-            background: #fff;
-            color: #000;
-        }
-
-        .light-mode .role-box {
-            background: #00796b;
-        }
-
-        /* Copyright Styles */
-        footer {
-            text-align: center;
-            margin-top: 50px;
-            color: #888;
-            animation: fadeIn 2s ease-in-out;
-        }
-
-        /* Hobbies Section Styles */
-        .hobbies-section {
-            margin-top: 30px;
-            text-align: left; /* Align to the left */
-            margin-left: 20px;
-            animation: fadeUp 2s ease-in-out forwards;
-        }
-
-        .hobbies-section p {
-            font-size: 1.1rem;
-            color: #bbb;
-        }
-
-        .languages-section {
-        text-align: center;
-        margin-top: 40px;
-    }
-    
-    .languages-section h2 {
-    font-size: 1.6rem; /* Reduced font size */
-    font-weight: bold;
-    color: #4fc3f7; /* Matching the blue used in role boxes */
-    margin-bottom: 10px;
-
-}
-
-.languages-section p {
-    font-size: 1.2rem;
-    color: #fff; /* White color */
-    margin-bottom: 20px;
-
-    }
-
-    .language-container {
-        display: flex;
-        justify-content: space-around;
-        flex-wrap: wrap;
-        gap: 30px;
-        padding: 20px;
-    }
-
-    .language-card {
-        background-color: #2e2e2e;
-        padding: 20px;
-        border-radius: 10px;
-        width: 200px;
-        text-align: center;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .language-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    }
-
-    .language-card i {
-        font-size: 3rem;
-        color: #f0f0f0;
-        margin-bottom: 15px;
-
-    }
-   
-   /* Language box container */
- .language-box {
-    background: #333;
-    padding: 10px;
-    margin-right: 10px;
-    border-radius: 10px;
-    text-align: center;
-    width: 150px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Shadow effect */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
-}
-
-/* Hover effect for language box */
-.language-box:hover {
-    transform: scale(1.05); /* Slightly enlarge the box on hover */
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3); /* Darker and larger shadow on hover */
-
-}
-
-    .progress-container {
-        background-color: #444;
-        border-radius: 10px;
-        height: 20px;
-        width: 100%;
-        margin-top: 10px;
-        overflow: hidden;
-    }
-
-    .progress-bar {
-        height: 100%;
-        border-radius: 10px;
-        text-align: center;
-        line-height: 20px;
-        color: white;
-        font-weight: bold;
-        background: linear-gradient(90deg, #4CAF50, #2196F3);
-    }
-    
-    /* Responsive Design */
-    @media (max-width: 768px) {
-        .language-container {
-            flex-direction: column;
-            align-items: center;
-      
-      }
-
-        /* Social Media Button Styles */
-        .social-buttons {
-            display: flex;
-            justify-content: center;
-            margin-top: 30px;
-        }
-
-        .social-buttons a {
-            margin: 0 10px;
-            font-size: 1.5rem;
-            color: #fff;
-            transition: color 0.3s;
-        }
-
-        .social-buttons a:hover {
-            color: #4fc3f7;
-        }
-
-        /* Keyframe Animations */
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
-        }
-
-        @keyframes fadeUp {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes slideIn {
-            0% {
-                transform: translateY(50px);
-                opacity: 0;
-            }
-            100% {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        @keyframes slideInMenu {
-            0% {
-                transform: translateX(100%);
-                opacity: 0;
-            }
-            100% {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-
-        @keyframes progressAnimation {
-            0% {
-                width: 0;
-            }
-            100% {
-                width: 100%;
-            }
-        }
-
-/* Website Information Section */
-.website-info-section {
-    margin-top: 30px;
-    text-align: center;
-    animation: fadeUp 2s ease-in-out forwards;
-}
-
-.website-info-section h2 {
-    font-size: 2rem;
-    color: #4fc3f7;
-    margin-bottom: 20px;
-    font-weight: bold;
-}
-
-.website-info-list {
-    list-style: none;
-    padding: 0;
-    font-size: 1.1rem;
-    color: #fff;
-    text-align: left;
-    margin: 0 auto;
-    max-width: 600px;
-}
-
-.website-info-list li {
-    margin: 10px 0;
-    padding: 8px;
-    border-bottom: 1px solid #ddd;
-}
-
-.website-info-list li:last-child {
-    border-bottom: none;
-}
-
-.website-info-list strong {
-    color: #4fc3f7;
-    font-weight: bold;
-}
-
-.website-info-list i {
-    margin-right: 10px;
-    color: #4fc3f7; /* To match icon color with the heading */
-}
-
-/* Adjust the styling for Uptime and Website Began */
-.website-info-list li:last-of-type {
-    border-bottom: none;
-}
-
-#uptime {
-    color: #fff; /* Make uptime stand out */
-}
-
-/* Website Information Section */
-.website-info-section .website-info-list {
-    list-style: none;
-    padding: 0;
-    font-size: 1.1rem;
-    margin: 0 auto;
-    max-width: 600px;
-    text-align: left;
-}
-
-/* Light Mode - Default Styles */
-.website-info-section .website-info-list li {
-    color: #000 !important; /* Text color for light mode */
-}
-
-.website-info-section .website-info-list i {
-    color: #000 !important; /* Icon color for light mode */
-}
-
-/* Dark Mode Styles */
-@media (prefers-color-scheme: dark) {
-    .website-info-section .website-info-list li {
-        color: #fff !important; /* Text color for dark mode */
-    }
-
-    .website-info-section .website-info-list i {
-        color: #fff !important; /* Icon color for dark mode */
-    }
-}
-
-/* Add styles to handle the contrast of icons in different themes */
-.website-info-section .website-info-list i.fas {
-    color: inherit; /* Inherit text color to make sure icons match text color */
-}
-
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Hamburger Button -->
-    <button class="hamburger" id="hamburger">
-        <div></div>
-        <div></div>
-        <div></div>
-    </button>
+  <!-- Settings Icon -->
+  <div id="settings-icon">
+    <i class="fas fa-cog"></i> <!-- Settings Icon -->
+  </div>
 
-    <!-- Menu Box -->
-<div class="menu-box" id="menuBox">
-    <button id="themeToggle">
-        <i class="fas fa-sun"></i> Theme / Mode Toggle
-    </button>
-    <div class="dropdown" id="themeDropdown" style="display: none;">
-        <button id="darkMode"><i class="fas fa-moon"></i> Dark Mode</button>
-        <button id="lightMode"><i class="fas fa-sun"></i> Light Mode</button>
-    </div>
-    <button id="languageChanger">
-        <i class="fas fa-globe"></i> Language Changer
-    </button>
-    <div class="dropdown" id="languageDropdown" style="display: none;">
-        <button id="english">
-            <i class="fas fa-flag"></i> English / Engels <!-- Font Awesome Flag -->
-        </button>
-        <button id="dutch">
-            <i class="fas fa-flag"></i> Dutch / Nederlands<!-- Font Awesome Flag -->
-        </button>
-    </div>
+  <!-- Settings Sidebar -->
+<div id="settings-sidebar">
+  <h3>Settings</h3>
+  <ul>
+    <li>
+      <label for="language-switcher">Language:</label>
+      <select id="language-switcher">
+        <option value="en">English</option>
+        <option value="nl">Nederlands</option>
+        <option value="es">Español</option>
+      </select>
+    </li>
+    <li>
+      <label for="theme-toggle">Theme:</label>
+      <button id="theme-toggle">Dark Mode</button>
+    </li>
+    <li>
+      <button id="website-info">Website Information</button>
+    </li>
+  </ul>
 </div>
 
-    <!-- Header Section -->
-    <header>
-        <h1 data-en="Welcome to My Portfolio" data-nl="Welkom op mijn portfolio">Welcome to My Portfolio</h1>
-        <h3 data-en="Developer / Programmer | Scripts, Tools and Simple Websites" data-nl="Ontwikkelaar / Programmeur | Scripts, Tools en Eenvoudige Websites">Developer / Programmer | Scripts, Tools and Simple Websites</h3>
-    </header>
+  <!-- Header -->
+  <header>
+    <h1>My Portfolio</h1>
+  </header>
 
-    <!-- Main Content -->
-    <main>
-        <section>
-            <h2 data-en="About Me" data-nl="Over Mij">About Me</h2>
-            <p data-en="Hi, I'm Lensly (or Lens), a 15-year-old self-taught developer. I create scripts, tools, and websites. My passion lies in building efficient and innovative solutions. Welcome to my portfolio!"
-                data-nl="Hallo, ik ben Lensly (of Lens), een 15-jarige autodidactische ontwikkelaar. Ik maak scripts, tools en websites. Mijn passie ligt in het bouwen van efficiënte en innovatieve oplossingen. Welkom op mijn portfolio!">
-                Hi, I'm Lensly (or Lens), a 15-year-old self-taught developer. I create scripts, tools, and websites. My passion lies in building efficient and innovative solutions. Welcome to my portfolio!
-            </p>
-        </section>
+  <!-- About Me Section -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>Hi, I'm Lensly, a passionate developer with expertise in software development, web development, and system programming. I love building things that make a difference!</p>
+  </section>
 
-        <!-- Hobbies & Interests Section (Aligned Left) -->
-<section class="hobbies-section">
-    <h2 data-en="Hobbies & Interests" data-nl="Hobby's & Interesses">Hobbies & Interests</h2>
-    <p data-en="When I'm not coding I enjoy:" data-nl="Wanneer ik niet aan het coderen ben, geniet ik van:">When I'm not coding I enjoy:</p>
-    <ul>
-        <li data-en="Playing video games to unwind." data-nl="Video games spelen om tot rust te komen.">
-            <i class="fas fa-gamepad"></i> Playing video games to unwind.
-        </li>
-        <li data-en="Exploring new technology and staying updated with industry trends." data-nl="Nieuwe technologie verkennen en op de hoogte blijven van trends in de industrie.">
-            <i class="fas fa-microchip"></i> Exploring new technology and staying updated with industry trends.
-        </li>
-        <li data-en="Learning about ethical hacking and security to enhance my skills." data-nl="Leren over ethisch hacken en beveiliging om mijn vaardigheden te verbeteren.">
-            <i class="fas fa-shield-alt"></i> Learning about ethical hacking and security to enhance my skills.
-        </li>
+  <!-- Programming Languages Section -->
+  <section id="languages">
+    <h2>Programming Languages</h2>
+    <ul class="skills-list">
+      <li>
+        <div class="skill-item">
+          <i class="fab fa-php"></i> <!-- PHP Icon -->
+          <span>PHP</span>
+          <div class="progress-bar">
+            <div class="progress" style="width: 100%;"></div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="skill-item">
+          <i class="fab fa-python"></i> <!-- Python Icon -->
+          <span>Python</span>
+          <div class="progress-bar">
+            <div class="progress" style="width: 90%;"></div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="skill-item">
+          <i class="fab fa-js"></i> <!-- JavaScript Icon -->
+          <span>JavaScript</span>
+          <div class="progress-bar">
+            <div class="progress" style="width: 95%;"></div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="skill-item">
+          <i class="fab fa-html5"></i> <!-- HTML Icon -->
+          <span>HTML</span>
+          <div class="progress-bar">
+            <div class="progress" style="width: 95%;"></div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="skill-item">
+          <i class="fab fa-css3"></i> <!-- CSS Icon -->
+          <span>CSS</span>
+          <div class="progress-bar">
+            <div class="progress" style="width: 70%;"></div>
+          </div>
+        </div>
+      </li>
     </ul>
-</section>
+  </section>
 
-        <!-- Languages Section -->
-        <section class="languages-section">
-    <h2 data-en="Languages" data-nl="Talen">Languages</h2>
-    <p data-en="Coding languages that I use and my knowledge of them:" data-nl="Programmeertalen die ik gebruik en mijn kennis daarvan:">Coding languages that I use and my knowledge of them:</p>
-    
-    <div class="language-container">
-        <div class="language-card">
-            <i class="fab fa-python"></i>
-            <div class="progress-container">
-                <div class="progress-bar" style="width: 85%;">Python (85%)</div>
-            </div>
-        </div>
-        <div class="language-card">
-            <i class="fab fa-php"></i>
-            <div class="progress-container">
-                <div class="progress-bar" style="width: 80%;">PHP (80%)</div>
-            </div>
-        </div>
-        <div class="language-card">
-            <i class="fab fa-html5"></i>
-            <div class="progress-container">
-                <div class="progress-bar" style="width: 70%;">HTML (70%)</div>
-            </div>
-        </div>
-        <div class="language-card">
-            <i class="fab fa-js"></i>
-            <div class="progress-container">
-                <div class="progress-bar" style="width: 70%;">JavaScript (70%)</div>
-            </div>
-        </div>
-        <div class="language-card">
-            <i class="fab fa-css3-alt"></i>
-            <div class="progress-container">
-                <div class="progress-bar" style="width: 50%;">CSS (50%)</div>
-            </div>
-           </div>
-         </div>
-       </section>
-
-        <!-- Developer Role Boxes -->
-        <section>
-            <h2 data-en="Roles" data-nl="Rollen">Roles</h2>
-           <div class="role-box-container">
-    <div class="role-box">
-        <i class="fas fa-code" style="font-size: 2.5rem; color: #fff; margin-bottom: 10px;"></i>
-        <h3 data-en="Software Developer" data-nl="Software Ontwikkelaar" style="color: #fff;">
-            Software Developer
-        </h3>
-        <p data-en="Building innovative software solutions for various platforms." data-nl="Het bouwen van innovatieve software-oplossingen voor verschillende platforms." style="color: #fff;">
-            Building innovative software solutions for various platforms.
-        </p>
+  <!-- Roles Section -->
+  <section id="roles">
+    <h2>Roles</h2>
+    <div class="roles-container">
+      <div class="role">
+        <i class="fas fa-laptop-code"></i> <!-- Software Developer Icon -->
+        <h3>Software Developer</h3>
+        <p>Building scalable and efficient software solutions.</p>
+      </div>
+      <div class="role">
+        <i class="fas fa-code"></i> <!-- Website Developer Icon -->
+        <h3>Website Developer</h3>
+        <p>Creating responsive and modern websites.</p>
+      </div>
+      <div class="role">
+        <i class="fas fa-cogs"></i> <!-- System Programmer Icon -->
+        <h3>System Programmer</h3>
+        <p>Developing low-level system applications.</p>
+      </div>
     </div>
-    <div class="role-box">
-        <i class="fas fa-laptop-code" style="font-size: 2.5rem; color: #fff; margin-bottom: 10px;"></i>
-        <h3 data-en="Website Developer" data-nl="Website Ontwikkelaar" style="color: #fff;">
-            Website Developer
-        </h3>
-        <p data-en="Creating responsive, user-friendly websites with modern technologies." data-nl="Het maken van responsieve, gebruiksvriendelijke websites met moderne technologieën." style="color: #fff;">
-            Creating responsive, user-friendly websites with modern technologies.
-        </p>
+  </section>
+
+  <!-- Social Icons -->
+  <section id="social">
+    <h2>Connect With Me</h2>
+    <div class="icons">
+      <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://tiktok.com/09lens" target="_blank"><i class="fab fa-tiktok"></i></a>
     </div>
-    <div class="role-box">
-        <i class="fas fa-cogs" style="font-size: 2.5rem; color: #fff; margin-bottom: 10px;"></i>
-        <h3 data-en="System Programmer" data-nl="Systeem Programmeur" style="color: #fff;">
-            System Programmer
-        </h3>
-        <p data-en="Working with low-level programming and operating systems." data-nl="Werken met low-level programmeren en besturingssystemen." style="color: #fff;">
-            Working with low-level programming and operating systems.
-        </p>
-    </div>
-</div>
-        </section>
+  </section>
 
-  <!-- Website Information Section -->
-<section class="website-info-section">
-    <h2 data-en="Website Information" data-nl="Website Informatie">Website Information</h2>
-    <ul class="website-info-list">
-        <li><i class="fas fa-user"></i> <strong data-en="Developer" data-nl="Ontwikkelaar:">Developer:</strong> Lensly</li>
-        <li><i class="fas fa-code"></i> <strong data-en="Made Using" data-nl="Gemaakt Met:">Made Using:</strong> HTML, CSS & JavaScript</li>
-        <li><i class="fas fa-server"></i> <strong data-en="Host:" data-nl="Host:">Host:</strong> Cloudflare</li>
-        <li><i class="fas fa-link"></i> <strong data-en="Domain / Subdomain:" data-nl="Domein / Subdomein:">Domain / Subdomain:</strong> lensly.pages.dev</li>
-        <li><i class="fas fa-calendar"></i> <strong data-en="Website Began:" data-nl="Website Begon:">Website Began:</strong> December 23, 2024</li>
-        <li><i class="fas fa-clock"></i> <strong data-en="Uptime:" data-nl="Uptime:">Uptime:</strong> <span id="uptime">Calculating...</span></li>
-        <li><i class="fas fa-info-circle"></i> <strong data-en="Description:" data-nl="Beschrijving:">Description:</strong> A personal portfolio website made by me.</li>
-        <li><i class="fas fa-triangle-exclamation"></i> <strong data-en="Errors (Being Fixed):" data-nl="Fouten (Worden Gemaakt):">Errors (Being Fixed):</strong> Website not working on desktop mode.</li>
-    </ul>
-</section>
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 [Your Name]. All rights reserved.</p>
+  </footer>
 
-<script>
-    // Website start date (December 23, 2024)
-    const websiteStartDate = new Date('December 23, 2024 00:00:00').getTime();
-
-    // Function to calculate uptime
-    function calculateUptime() {
-        const currentDate = new Date().getTime();
-        const uptimeMillis = currentDate - websiteStartDate;
-
-        // Calculate time in days, hours, and minutes
-        const days = Math.floor(uptimeMillis / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((uptimeMillis % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((uptimeMillis % (1000 * 60 * 60)) / (1000 * 60));
-
-        // Update the Uptime section with the calculated values
-        document.getElementById("uptime").innerText = `${days} days, ${hours} hours, ${minutes} minutes`;
-    }
-
-    // Call the calculateUptime function when the page loads
-    window.onload = calculateUptime;
-</script>
-
-        <!-- Social Media Buttons -->
-        <section class="social-buttons">
-            <a href="https://www.tiktok.com/@l.usr.ns" target="_blank">
-                <i class="fab fa-tiktok"></i>
-            </a>
-            <a href="https://github.com/" target="_blank">
-                <i class="fab fa-github"></i>
-            </a>
-            <a href="https://www.youtube.com/" target="_blank">
-           <i class="fab fa-youtube"></i>
-            </a>
-        </section>
-    </main>
-
-    <!-- Footer Section -->
-    <footer>
-        <p data-en="© 2024 Lensly / Lens. All Rights Reserved." data-nl="© 2024 Lensly / Lens. Alle Rechten Voorbehouden.">© 2024 Lensly / Lens. All Rights Reserved.</p>
-    </footer>
-
-    <!-- JavaScript -->
-    <script>
-        const hamburger = document.getElementById("hamburger");
-        const menuBox = document.getElementById("menuBox");
-        const themeToggle = document.getElementById("themeToggle");
-        const themeDropdown = document.getElementById("themeDropdown");
-        const languageChanger = document.getElementById("languageChanger");
-        const languageDropdown = document.getElementById("languageDropdown");
-
-        // Hamburger toggle
-        hamburger.addEventListener("click", () => {
-            menuBox.classList.toggle("open");
-        });
-
-        // Theme toggle dropdown
-        themeToggle.addEventListener("click", () => {
-            themeDropdown.style.display = themeDropdown.style.display === "none" ? "block" : "none";
-            languageDropdown.style.display = "none";
-        });
-
-        // Language changer dropdown
-        languageChanger.addEventListener("click", () => {
-            languageDropdown.style.display = languageDropdown.style.display === "none" ? "block" : "none";
-            themeDropdown.style.display = "none";
-        });
-
-        // Language switch
-        document.querySelectorAll("#languageDropdown button").forEach(button => {
-            button.addEventListener("click", () => {
-                const lang = button.id === "english" ? "en" : "nl";
-                document.querySelectorAll("[data-en]").forEach(el => {
-                    el.textContent = el.dataset[lang];
-                });
-                languageDropdown.style.display = "none";
-            });
-        });
-
-        // Theme switch
-        document.querySelectorAll("#themeDropdown button").forEach(button => {
-            button.addEventListener("click", () => {
-                if (button.id === "darkMode") {
-                    document.body.classList.remove("light-mode");
-                } else {
-                    document.body.classList.add("light-mode");
-                }
-                themeDropdown.style.display = "none";
-            });
-        });
-
-        // Scroll animation triggers
-        const fadeInElements = document.querySelectorAll(".fade-in");
-        const animatedElements = document.querySelectorAll(".animated");
-
-        window.addEventListener("scroll", () => {
-            fadeInElements.forEach(element => {
-                if (element.getBoundingClientRect().top <= window.innerHeight * 0.8) {
-                    element.classList.add("visible");
-                }
-            });
-
-            animatedElements.forEach(element => {
-                if (element.getBoundingClientRect().top <= window.innerHeight * 0.8) {
-                    element.classList.add("visible");
-                }
-            });
-        });
-    </script>
+  <!-- JavaScript -->
+  <script src="script.js"></script>
 </body>
-</html>
+            </html>
